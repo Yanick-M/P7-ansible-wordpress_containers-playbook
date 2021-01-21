@@ -1,0 +1,7 @@
+---
+MYSQL_ROOT_PASSWORD: Example
+MYSQL_DATABASE: Example
+MYSQL_USER: Example
+MYSQL_PASSWORD: Example
+
+# Custom vars with your own values by replacing "Example" words

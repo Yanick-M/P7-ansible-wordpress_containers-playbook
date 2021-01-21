@@ -7,10 +7,10 @@
     restart_policy: always
     volumes: 'db_data:/var/lib/mysql'
     env:
-      MYSQL_ROOT_PASSWORD: Azerty123&
-      MYSQL_DATABASE: myverylittleblog
-      MYSQL_USER: master-mvlb
-      MYSQL_PASSWORD: Azerty123&
+      MYSQL_ROOT_PASSWORD: {{MYSQL_ROOT_PASSWORD}}
+      MYSQL_DATABASE: {{MYSQL_DATABASE}}
+      MYSQL_USER: {{MYSQL_USER}}
+      MYSQL_PASSWORD: {{MYSQL_PASSWORD}}
 
 - name: "build wordpress docker"
   docker_container:
@@ -22,6 +22,6 @@
     volumes: 'wordpress:/var/www/html'
     env:
       WORDPRESS_DB_HOST: 172.17.0.2:3306
-      WORDPRESS_DB_USER: master-mvlb
-      WORDPRESS_DB_PASSWORD: Azerty123&
-      WORDPRESS_DB_NAME: myverylittleblog
+      WORDPRESS_DB_USER: {{MYSQL_USER}}
+      WORDPRESS_DB_PASSWORD: {{MYSQL_PASSWORD}}
+      WORDPRESS_DB_NAME: {{MYSQL_DATABASE}}
