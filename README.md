@@ -2,10 +2,7 @@
 
 ## Description:  
 Ce playbook permet une mise en place rapide de la machine de production du projet 7 d'OpenClassrooms.  
-
-## Tables des matières:  
-
-
+ 
 ## Fonctionnement:  
   * Le playbook installe les packages minimum au fonctionnement de Docker,  
   * Il configure le dépôt de Docker.com (qui provoque des failed sur les commandes apt update qui apparaissent en rouge lors de l'exécution du book mais ils sont ignorés),  
