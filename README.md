@@ -1,1 +1,1 @@
-# P7-ansible-wordpress_containe-playbook
+# P7-ansible-wordpress_containers-playbook
