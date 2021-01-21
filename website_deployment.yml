@@ -1,0 +1,5 @@
+- name: "configure web server"
+  hosts: serveur-production
+  roles:
+    - role: apps_deployment
+    - role: docker_containers_deployment

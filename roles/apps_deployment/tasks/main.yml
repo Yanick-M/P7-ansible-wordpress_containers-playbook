@@ -1,0 +1,50 @@
+- name: "update apt cache 1"
+  apt:
+    update_cache: yes
+    force_apt_get: yes
+  ignore_errors: yes
+
+- name: "update apt cache 1"
+  shell: "apt update &> /dev/null"
+
+- name: "install default packages"
+  apt:
+    pkg:
+    - "apt-transport-https"
+    - "ca-certificates"
+    - "curl"
+    - "gnupg2" 
+    - "software-properties-common"
+    - "python3-pip"
+    - "mariadb-client-10.3"
+
+- name: "prepare adding repo"
+  shell: 
+    cmd: "curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -"
+    warn: false
+
+- name: "add repo to install Docker"
+  shell:
+    cmd: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+    warn: false
+
+- name: "update apt cache 2"
+  apt:
+    update_cache: yes
+    force_apt_get: yes
+  ignore_errors: yes
+
+- name: "install Docker"
+  apt:
+    name: docker-ce
+
+- name: "install Docker script"
+  pip:
+    name: docker.py
+    executable: pip3
+
+- name: "add user to Docker group"
+  user:
+    name: aic
+    append: yes
+    groups: docker

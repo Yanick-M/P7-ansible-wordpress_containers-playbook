@@ -1,0 +1,9 @@
+---
+all:
+  hosts:
+    Router:
+      ansible_user: aic
+      ansible_python_interpreter: /usr/bin/python3
+    serveur-production:
+      ansible_user: aic
+      ansible_python_interpreter: /usr/bin/python3
